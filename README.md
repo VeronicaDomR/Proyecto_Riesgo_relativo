@@ -22,4 +22,13 @@ El objetivo del análisis es armar un score crediticio a partir de un análisis 
 ## Lenguajes
 - SQL en BigQuery
 - Python en Google Colab.
+## Procesamiento y preparación de datos
+1. ### Importación y Creación de Tablas en BigQuery:
+- Proyecto: proyecto3
+- Tablas importadas:
+  - default
+  - loans_Detail
+  - loans_outstanding
+  - user_info
+2. ### Identificación y Manejo de Valores Nulos:
 
