@@ -31,4 +31,9 @@ El objetivo del análisis es armar un score crediticio a partir de un análisis 
   - loans_outstanding
   - user_info
 2. ### Identificación y Manejo de Valores Nulos:
+- ### Tabla: user_info
+  - number_dependents: 943 nulls
+  - last_month_salary: 7199 nulls
+  En las demás tablas no se identificaron nulos.
+
 
