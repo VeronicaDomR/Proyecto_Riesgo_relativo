@@ -43,7 +43,8 @@ Se identificaron duplicados en la tabla 'loans_outstanding', totalizando 304,270
 
  ![](imagenes/corr_stddev.png)
  
-   Se calculo la correlación entre variables para identificar el comportamiento entre variables, las correlaciones son muy altas, cercanas a 1, lo que indica una fuerte relación lineal entre las variables:
+Se calcularon las correlaciones entre variables para analizar sus relaciones. Se encontraron correlaciones muy altas, cercanas a 1, indicando una fuerte relación lineal entre las siguientes variables:
+
    - more_90_days_overdue y number_times_delayed_payment_loan_60_89_days (0.9921).
    - more_90_days_overdue y number_times_delayed_payment_loan_30_59_days (0.9829).
 
