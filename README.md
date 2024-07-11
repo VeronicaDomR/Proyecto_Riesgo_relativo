@@ -36,4 +36,19 @@ El objetivo del análisis es armar un score crediticio a partir de un análisis 
   - last_month_salary: 7199 nulls
   En las demás tablas no se identificaron nulos.
 
+3. ### Identificación y Manejo de Duplicados
+Se identificaron duplicados en la tabla 'loans_outstanding', totalizando 304,270 registros duplicados.
+
+4. ### Identificar y manejar datos fuera del alcance del análisis
+
+ ![](imagenes/corr_stddev.png)
+ 
+   Se calculo la correlación entre variables para identificar el comportamiento entre variables, las correlaciones son muy altas, cercanas a 1, lo que indica una fuerte relación lineal entre las variables:
+   - more_90_days_overdue y number_times_delayed_payment_loan_60_89_days (0.9921).
+   - more_90_days_overdue y number_times_delayed_payment_loan_30_59_days (0.9829).
+
+Se observa que las desviaciones estándar son muy similares, lo que indica que los tres valores están cercanos a la media. Esto sugiere que cualquiera de las variables puede ser excluida sin perder información importante. En nuestro caso, las correlaciones son altas, por lo que podemos excluir una variable considerando otros factores, como la cantidad específica de días de retraso. Por lo tanto, se ha decidido excluir la variable more_90_days_overdue.
+
+6. mdccd 
+
 
