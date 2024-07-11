@@ -50,6 +50,8 @@ Se calcularon las correlaciones entre variables para analizar sus relaciones. Se
 
 Se observa que las desviaciones estándar son muy similares, lo que indica que los tres valores están cercanos a la media. Esto sugiere que cualquiera de las variables puede ser excluida sin perder información importante. En nuestro caso, las correlaciones son altas, por lo que podemos excluir una variable considerando otros factores, como la cantidad específica de días de retraso. Por lo tanto, se ha decidido excluir la variable more_90_days_overdue.
 
-6. mdccd 
+5. ### Outliers
+En este análisis, se utilizaron técnicas estadísticas para definir los outliers en la columna de edad del dataset proyecto3-428922.dataset.default_user_info_union. Aplicando el método del rango intercuartílico (IQR), se establecieron los límites superior e inferior para detectar valores atípicos. Como resultado, se identificaron 10 outliers en la distribución de edades. 
+ ![](imagenes/outliers.png)
 
 
