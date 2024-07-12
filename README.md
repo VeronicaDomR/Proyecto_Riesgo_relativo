@@ -50,6 +50,16 @@ Se calcularon las correlaciones entre variables para analizar sus relaciones. Se
 
 Se observa que las desviaciones estándar son muy similares, lo que indica que los tres valores están cercanos a la media. Esto sugiere que cualquiera de las variables puede ser excluida sin perder información importante. En nuestro caso, las correlaciones son altas, por lo que podemos excluir una variable considerando otros factores, como la cantidad específica de días de retraso. Por lo tanto, se ha decidido excluir la variable more_90_days_overdue.
 
+ ![](imagenes/corr_total_loan_type.png)
+
+- *Correlación entre cantidad_total_tipo_prestamo y more_90_days_overdue:*
+
+Esta correlación es cercana a cero y negativa. Esto sugiere que no hay una relación lineal fuerte entre la cantidad total de tipos de préstamos y la cantidad de veces que un usuario ha estado más de 90 días en mora con sus préstamos. En otras palabras, el número total de tipos de préstamos que un usuario tiene no parece estar asociado de manera significativa con el número de veces que ese usuario ha estado gravemente moroso en sus préstamos.
+
+- *Correlación entre cantidad_total_tipo_prestamo y debt_ratio:*
+
+Esta correlación es muy cercana a cero y positiva. Indica que no hay una relación lineal significativa entre la cantidad total de tipos de préstamos y la relación deuda-ingreso (debt ratio) de los usuarios. Esto sugiere que la variedad de tipos de préstamos que un usuario tiene no está correlacionada con su relación deuda-ingreso de manera significativa.
+
 5. ### Outliers
 En este análisis, se utilizaron técnicas estadísticas para definir los outliers en la columna de edad del dataset proyecto3-428922.dataset.default_user_info_union. Aplicando el método del rango intercuartílico (IQR), se establecieron los límites superior e inferior para detectar valores atípicos. Como resultado, se identificaron 10 outliers en la distribución de edades. 
  ![](imagenes/outliers.png)
