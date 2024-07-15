@@ -61,7 +61,10 @@ Esta correlación es cercana a cero y negativa. Esto sugiere que no hay una rela
 Esta correlación es muy cercana a cero y positiva. Indica que no hay una relación lineal significativa entre la cantidad total de tipos de préstamos y la relación deuda-ingreso (debt ratio) de los usuarios. Esto sugiere que la variedad de tipos de préstamos que un usuario tiene no está correlacionada con su relación deuda-ingreso de manera significativa.
 
 5. ### Outliers
-En este análisis, se utilizaron técnicas estadísticas para definir los outliers en la columna de edad del dataset proyecto3-428922.dataset.default_user_info_union. Aplicando el método del rango intercuartílico (IQR), se establecieron los límites superior e inferior para detectar valores atípicos. Como resultado, se identificaron 10 outliers en la distribución de edades. 
- ![](imagenes/outliers.png)
+En este análisis, se utilizo z-scores, para para detectar outliers en el salario del último mes y la edad. Se identificaron 86 outliers en el salario del último mes y 10 outliers en la edad, destacando anomalías significativas en los datos de los usuarios.
 
+ ![](imagenes/outliers_user_info.png)
+ 
+Además, en la tabla loans_Detail, se identificaron los siguientes outliers utilizando z-scores:
+ ![](imagenes/outliers_loans_details.png)
 
