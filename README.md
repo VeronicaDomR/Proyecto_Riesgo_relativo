@@ -48,7 +48,7 @@ Se calcularon las correlaciones entre variables para analizar sus relaciones. Se
    - more_90_days_overdue y number_times_delayed_payment_loan_60_89_days (0.9921).
    - more_90_days_overdue y number_times_delayed_payment_loan_30_59_days (0.9829).
 
-Se observa que las desviaciones estándar son muy similares, lo que indica que los tres valores están cercanos a la media. Esto sugiere que cualquiera de las variables puede ser excluida sin perder información importante. En nuestro caso, las correlaciones son altas, por lo que podemos excluir una variable considerando otros factores, como la cantidad específica de días de retraso. Por lo tanto, se ha decidido excluir la variable more_90_days_overdue.
+Se observa que las desviaciones estándar son muy similares, lo que indica que los tres valores están cercanos a la media. Esto sugiere que cualquiera de las variables puede ser excluida sin perder información importante. 
 
  ![](imagenes/corr_total_loan_type.png)
 
