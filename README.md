@@ -70,10 +70,7 @@ Para identificar los outliers en nuestras variables, primero determinamos si los
   
 De nuestras variables analizadas, solo la variable edad presentó una distribución normal. Por lo tanto, se aplicó el Z-score para identificar los outliers en edad. 
 
- ![](imagenes/age.png)
-
 Para el resto de las variables con distribuciones sesgadas, se utilizó el método del rango intercuartílico.
 
-![](imagenes/hist_last_month_salary.png)
 
 
