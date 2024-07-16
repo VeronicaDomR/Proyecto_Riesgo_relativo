@@ -37,7 +37,7 @@ El objetivo del análisis es armar un score crediticio a partir de un análisis 
   En las demás tablas no se identificaron nulos.
 
 3. ### Identificación y Manejo de Duplicados
-Se identificaron duplicados en la tabla 'loans_outstanding', totalizando 304,270 registros duplicados.
+Se identificaron duplicados en la tabla 'loans_outstanding', totalizando 304,270 registros duplicados. Lo cual nos indican que un cliente puede tener varios prestamos.
 
 4. ### Identificar y manejar datos fuera del alcance del análisis
 
