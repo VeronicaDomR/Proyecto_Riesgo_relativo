@@ -90,3 +90,11 @@ Este filtrado garantiza que los datos analizados sean más representativos y no 
 
 El siguiente conjunto de datos ha sido preparado después de aplicar procesos de limpieza para asegurar su integridad y calidad. 
 
+#### Variables Creadas
+En el proceso de preparación del conjunto de datos, se crearon las siguientes variables para proporcionar una mayor claridad y facilitar el análisis de los tipos de préstamos:
+
+- *real_state_loan_type:* Cantidad de préstamos clasificados como real estate.
+- *others_loan_type:* Cantidad de préstamos clasificados como others.
+- *total_loans_type:* Suma del número de préstamos de real estate y others.
+  
+Estas variables adicionales permiten una mejor comprensión y análisis de la distribución y el tipo de préstamos dentro del conjunto de datos, proporcionando una visión más detallada de las transacciones financieras.
