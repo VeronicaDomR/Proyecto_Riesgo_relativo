@@ -92,9 +92,25 @@ El siguiente conjunto de datos ha sido preparado después de aplicar procesos de
 
 #### Variables Creadas
 En el proceso de preparación del conjunto de datos, se crearon las siguientes variables para proporcionar una mayor claridad y facilitar el análisis de los tipos de préstamos:
+- *birth_year*
+La variable birth_year representa el año de nacimiento calculado a partir de la edad de los usuarios en el conjunto de datos. Ayuda a contextualizar la edad de los usuarios en relación con los eventos históricos y las generaciones actuales.
+
+- *generational_group*
+La variable generational_group clasifica a los usuarios en diferentes grupos generacionales basados en su año de nacimiento. Esto facilita el análisis demográfico y permite entender mejor cómo diferentes grupos pueden responder o comportarse en relación con los préstamos y otros aspectos financieros.
 
 - *real_state_loan_type:* Cantidad de préstamos clasificados como real estate.
 - *others_loan_type:* Cantidad de préstamos clasificados como others.
 - *total_loans_type:* Suma del número de préstamos de real estate y others.
+  Estas variables adicionales permiten una mejor comprensión y análisis de la distribución y el tipo de préstamos dentro del conjunto de datos, proporcionando una visión más detallada de las transacciones financieras.
+- *Capacidad_Endeudamiento:* Clasifica la variable using_lines_not_secured_personal_assets en tres niveles de capacidad de endeudamiento:
+  - Bajo: Cuando using_lines_not_secured_personal_assets es menor a 0.30.
+  - Medio: Cuando using_lines_not_secured_personal_assets está entre 0.30 y 0.60.
+  - Alto: Cuando using_lines_not_secured_personal_assets es mayor a 0.60.
+  - Otro: En caso de que using_lines_not_secured_personal_assets no cumpla con las condiciones anteriores.
+- *Riesgo_Incumplimiento:* Clasifica la variable debt_ratio en tres niveles de riesgo de incumplimiento:
+  - Bajo Riesgo: Cuando debt_ratio es menor a 0.30.
+  - Riesgo Medio: Cuando debt_ratio está entre 0.30 y 0.60.
+  - Alto Riesgo: Cuando debt_ratio es mayor a 0.60.
+  - Otro: En caso de que debt_ratio no cumpla con las condiciones anteriores.
   
-Estas variables adicionales permiten una mejor comprensión y análisis de la distribución y el tipo de préstamos dentro del conjunto de datos, proporcionando una visión más detallada de las transacciones financieras.
+
