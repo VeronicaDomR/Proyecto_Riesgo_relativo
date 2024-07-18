@@ -36,7 +36,7 @@ El objetivo del análisis es armar un score crediticio a partir de un análisis 
   - last_month_salary: 7199 nulls
   En las demás tablas no se identificaron nulos.
 
-## Tratamiento de Valores Nulos
+#### Tratamiento de Valores Nulos
 
 En este proyecto de análisis de datos, aseguramos la integridad de nuestros datos tratando los valores nulos en las columnas `last_month_salary` y `number_dependents` utilizando la moda de cada variable:
 - La moda para `last_month_salary` es 5000.
@@ -80,6 +80,11 @@ Para identificar los outliers en nuestras variables, primero determinamos si los
 De nuestras variables analizadas, solo la variable edad presentó una distribución normal. Por lo tanto, se aplicó el Z-score para identificar los outliers en edad. 
 
 Para el resto de las variables con distribuciones sesgadas, se utilizó el método del rango intercuartílico.
+
+#### Tratamiento de outliers 
+
+En el análisis de datos de la tabla `proyecto3-428922.dataset.loans_Detail`, se aplicaron filtros para excluir los valores mayores o iguales a 96 en las variables more_90_days_overdue, number_times_delayed_payment_loan_30_59_days y number_times_delayed_payment_loan_60_89_days. Estos valores fueron identificados como outliers mediante el rango intercuartílico.
+Este filtrado garantiza que los datos analizados sean más representativos y no estén sesgados por valores atípicos excesivamente altos en las variables mencionadas.
 
 
 
