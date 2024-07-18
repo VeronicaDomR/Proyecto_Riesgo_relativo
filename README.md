@@ -36,6 +36,15 @@ El objetivo del análisis es armar un score crediticio a partir de un análisis 
   - last_month_salary: 7199 nulls
   En las demás tablas no se identificaron nulos.
 
+## Tratamiento de Valores Nulos
+
+En este proyecto de análisis de datos, aseguramos la integridad de nuestros datos tratando los valores nulos en las columnas `last_month_salary` y `number_dependents` utilizando la moda de cada variable:
+- La moda para `last_month_salary` es 5000.
+- La moda para `number_dependents` es 0.
+
+Esto nos permitió garantizar que nuestros análisis sean lo más precisos posible al manejar los datos faltantes de manera consistente y adecuada.
+
+
 3. ### Identificación y Manejo de Duplicados
 Se identificaron duplicados en la tabla 'loans_outstanding', totalizando 304,270 registros duplicados. Lo cual nos indican que un cliente puede tener varios prestamos.
 
