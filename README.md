@@ -112,5 +112,19 @@ La variable generational_group clasifica a los usuarios en diferentes grupos gen
   - Riesgo Medio: Cuando debt_ratio está entre 0.30 y 0.60.
   - Alto Riesgo: Cuando debt_ratio es mayor a 0.60.
   - Otro: En caso de que debt_ratio no cumpla con las condiciones anteriores.
-  
-
+- *more_90_days_overdue_status:* La variable more_90_days_overdue_status indica el nivel de retraso en los pagos de préstamos que han superado los 90 días. Se clasifica de la siguiente manera:
+  - Mucho Retraso: Cuando el número de días de retraso es igual o superior a 10.
+  - Medio Retraso: Cuando el número de días de retraso está entre 5 y 9.
+  - Poco Retraso: Cuando el número de días de retraso es menor a 5.
+- *number_times_delayed_payment_30_59_status:* La variable number_times_delayed_payment_30_59_status indica el nivel de retraso en los pagos de préstamos en el rango de 30 a 59 días. Se clasifica de la siguiente manera:
+  - Mucho Retraso: Cuando el número de días de retraso es igual o superior a 10.
+  - Medio Retraso: Cuando el número de días de retraso está entre 5 y 9.
+  - Poco Retraso: Cuando el número de días de retraso es menor a 5.
+- *number_times_delayed_payment_60_89_status:* La variable number_times_delayed_payment_60_89_status indica el nivel de retraso en los pagos de préstamos en el rango de 60 a 89 días. Se clasifica de la siguiente manera:
+  - Mucho Retraso: Cuando el número de días de retraso es igual o superior a 10.
+  - Medio Retraso: Cuando el número de días de retraso está entre 5 y 9.
+  - Poco Retraso: Cuando el número de días de retraso es menor a 5.
+- *payment_compliance_status:* Esta variable categoriza a cada cliente en función de su nivel general de cumplimiento de pagos:
+  - Cumplido: Indica que el cliente tiene "Poco Retraso" en las tres categorías de retraso (more_90_days_overdue, number_times_delayed_payment_loan_30_59_days, number_times_delayed_payment_loan_60_89_days).
+  - Incumplido: Indica que el cliente tiene al menos un nivel de "Mucho Retraso" en alguna de las categorías de retraso.
+  - Intermedio: Se asigna a los clientes que no cumplen completamente con los criterios de "Cumplido" o "Incumplido".
