@@ -5,7 +5,7 @@ Propuesta de automatización del proceso de análisis utilizando técnicas avanz
 - [Herramientas](#herramientas)
 - [Lenguajes](#lenguajes)
 - [Procesamiento y preparación de datos](#procesamiento-y-preparación-de-datos)
-- [Visualización y Análisis de Datos](#visualización-y-análisis-de-datos)
+- [Variables Creadas](#Variables-Creadas)
 - [Resultados](#resultados)
 - [Correlación entre variables](#correlación-entre-variables)
 - [Prueba de Significancia](#prueba-de-significancia) 
@@ -90,7 +90,7 @@ Este filtrado garantiza que los datos analizados sean más representativos y no 
 
 El siguiente conjunto de datos ha sido preparado después de aplicar procesos de limpieza para asegurar su integridad y calidad. 
 
-#### Variables Creadas
+## Variables Creadas
 En el proceso de preparación del conjunto de datos, se crearon las siguientes variables para proporcionar una mayor claridad y facilitar el análisis de los tipos de préstamos:
 - *birth_year*
 La variable birth_year representa el año de nacimiento calculado a partir de la edad de los usuarios en el conjunto de datos. Ayuda a contextualizar la edad de los usuarios en relación con los eventos históricos y las generaciones actuales.
@@ -140,7 +140,7 @@ En detalle, la metodología seguida incluye:
 
 - ***Cálculo del Riesgo Relativo:*** Finalmente, se calculó el riesgo relativo como la razón entre la incidencia del grupo expuesto y la incidencia del grupo no expuesto. Esto nos proporciona una medida de cómo el grupo expuesto se compara con el grupo no expuesto en términos de probabilidad de incumplimiento.
 
-Esta metodología ayuda a identificar y cuantificar la relación entre las características de los grupos y los resultados observados, proporcionando una base sólida para la evaluación de las hipótesis planteadas.
+  Hipótesis a validar:
 
 - ***Los más jóvenes tienen un mayor riesgo de impago.*** Un riesgo relativo de 2.29 para el grupo de edad joven indica que este grupo tiene 2.29 veces más probabilidades de incumplir sus préstamos en comparación con los otros grupos de edad. Esto sugiere que la edad joven está asociada con un mayor riesgo de incumplimiento.
 - ***Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores.*** Dado que el riesgo relativo para las personas con más préstamos es de 0.604, esto invalida la hipótesis de que las personas con una mayor cantidad de préstamos activos tienen un mayor riesgo de ser malos pagadores. En lugar de eso, el análisis sugiere que tener más préstamos activos está asociado con un menor riesgo de incumplimiento en comparación con tener menos préstamos activos.
