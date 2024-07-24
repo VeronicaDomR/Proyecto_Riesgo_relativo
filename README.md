@@ -134,15 +134,14 @@ Para comprobar las hipótesis, se calculo el riesgo relativo utilizando la incid
 
 En detalle, la metodología seguida incluye:
 
-- *Cálculo de la Incidencia:* Primero se determinó la incidencia de incumplimiento en cada grupo, dividiendo el número de malos pagadores entre el total de observaciones en cada grupo.
+- ***Cálculo de la Incidencia:*** Primero se determinó la incidencia de incumplimiento en cada grupo, dividiendo el número de malos pagadores entre el total de observaciones en cada grupo.
 
-- *Definición de Grupos:* Se clasificaron los datos en grupos expuestos y no expuestos en función del cuartil de la variable de retraso en el pago.
+- ***Definición de Grupos:*** Se clasificaron los datos en grupos expuestos y no expuestos en función del cuartil de la variable de retraso en el pago.
 
-- *Cálculo del Riesgo Relativo:* Finalmente, se calculó el riesgo relativo como la razón entre la incidencia del grupo expuesto y la incidencia del grupo no expuesto. Esto nos proporciona una medida de cómo el grupo expuesto se compara con el grupo no expuesto en términos de probabilidad de incumplimiento.
+- ***Cálculo del Riesgo Relativo:*** Finalmente, se calculó el riesgo relativo como la razón entre la incidencia del grupo expuesto y la incidencia del grupo no expuesto. Esto nos proporciona una medida de cómo el grupo expuesto se compara con el grupo no expuesto en términos de probabilidad de incumplimiento.
 
 Esta metodología ayuda a identificar y cuantificar la relación entre las características de los grupos y los resultados observados, proporcionando una base sólida para la evaluación de las hipótesis planteadas.
 
-
-- Los más jóvenes tienen un mayor riesgo de impago. Un riesgo relativo de 2.29 para el grupo de edad joven indica que este grupo tiene 2.29 veces más probabilidades de incumplir sus préstamos en comparación con los otros grupos de edad. Esto sugiere que la edad joven está asociada con un mayor riesgo de incumplimiento.
-- Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores. Dado que el riesgo relativo para las personas con más préstamos es de 0.604, esto invalida la hipótesis de que las personas con una mayor cantidad de préstamos activos tienen un mayor riesgo de ser malos pagadores. En lugar de eso, el análisis sugiere que tener más préstamos activos está asociado con un menor riesgo de incumplimiento en comparación con tener menos préstamos activos.
-- Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores.Las personas con más veces de retraso tienen un riesgo relativo de 36.50, lo cual valida hipótesis. Los resultados muestran que la frecuencia de retrasos prolongados en los pagos está altamente correlacionada con un riesgo significativamente mayor de incumplimiento.
+- ***Los más jóvenes tienen un mayor riesgo de impago.*** Un riesgo relativo de 2.29 para el grupo de edad joven indica que este grupo tiene 2.29 veces más probabilidades de incumplir sus préstamos en comparación con los otros grupos de edad. Esto sugiere que la edad joven está asociada con un mayor riesgo de incumplimiento.
+- ***Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores.*** Dado que el riesgo relativo para las personas con más préstamos es de 0.604, esto invalida la hipótesis de que las personas con una mayor cantidad de préstamos activos tienen un mayor riesgo de ser malos pagadores. En lugar de eso, el análisis sugiere que tener más préstamos activos está asociado con un menor riesgo de incumplimiento en comparación con tener menos préstamos activos.
+- ***Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores.*** Las personas con más veces de retraso tienen un riesgo relativo de 36.50, lo cual valida hipótesis. Los resultados muestran que la frecuencia de retrasos prolongados en los pagos está altamente correlacionada con un riesgo significativamente mayor de incumplimiento.
