@@ -145,3 +145,89 @@ En detalle, la metodología seguida incluye:
 - ***Los más jóvenes tienen un mayor riesgo de impago.*** Un riesgo relativo de 2.29 para el grupo de edad joven indica que este grupo tiene 2.29 veces más probabilidades de incumplir sus préstamos en comparación con los otros grupos de edad. Esto sugiere que la edad joven está asociada con un mayor riesgo de incumplimiento.
 - ***Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores.*** Dado que el riesgo relativo para las personas con más préstamos es de 0.604, esto invalida la hipótesis de que las personas con una mayor cantidad de préstamos activos tienen un mayor riesgo de ser malos pagadores. En lugar de eso, el análisis sugiere que tener más préstamos activos está asociado con un menor riesgo de incumplimiento en comparación con tener menos préstamos activos.
 - ***Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores.*** Las personas con más veces de retraso tienen un riesgo relativo de 36.50, lo cual valida hipótesis. Los resultados muestran que la frecuencia de retrasos prolongados en los pagos está altamente correlacionada con un riesgo significativamente mayor de incumplimiento.
+
+   ## Análisis de Riesgo de Crédito
+  
+***1. Creación de Variables Dummies***
+Para facilitar el análisis y modelado del riesgo de crédito, se crearon variables dummies a partir de las variables categóricas y continuas en el dataset. Las variables dummies permiten convertir categorías en valores numéricos que pueden ser utilizados en modelos de aprendizaje automático y análisis estadístico.
+```
+CREATE OR REPLACE TABLE `proyecto3-428922.dataset_dummies` AS
+SELECT
+  *,
+  IF(more_90_days_overdue_status = 'Yes', 1, 0) AS overdue_yes,
+  IF(more_90_days_overdue_status = 'No', 1, 0) AS overdue_no,
+  IF(Riesgo_Incumplimiento = 'Bajo Riesgo', 1, 0) AS risk_low,
+  IF(Riesgo_Incumplimiento = 'Riesgo Medio', 1, 0) AS risk_medium,
+  IF(Riesgo_Incumplimiento = 'Alto Riesgo', 1, 0) AS risk_high,
+  IF(Capacidad_Endeudamiento = 'Bajo', 1, 0) AS debt_capacity_low,
+  IF(Capacidad_Endeudamiento = 'Medio', 1, 0) AS debt_capacity_medium,
+  IF(Capacidad_Endeudamiento = 'Alto', 1, 0) AS debt_capacity_high,
+  IF(age BETWEEN 0 AND 20, 1, 0) AS age_0_20,
+  IF(age BETWEEN 21 AND 40, 1, 0) AS age_21_40,
+  IF(age BETWEEN 41 AND 60, 1, 0) AS age_41_60,
+  IF(age BETWEEN 61 AND 80, 1, 0) AS age_61_80,
+  IF(age BETWEEN 81 AND 100, 1, 0) AS age_81_100
+FROM
+  `proyecto3-428922.dataset.dataset_1`;
+```
+***2. Cálculo del Score de Riesgo***
+Para clasificar el riesgo de crédito, se asignaron ponderaciones a cada variable y se calcularon los scores de riesgo para cada cliente. Las ponderaciones reflejan la importancia relativa de cada variable en la evaluación del riesgo.
+```
+CREATE OR REPLACE TABLE `proyecto3-428922.dataset_risk_scores` AS
+SELECT
+  *,
+  0.4 * IF(more_90_days_overdue_status = 'Yes', 1, 0) AS more_90_days_overdue_score,
+  0.3 * debt_ratio AS debt_ratio_score,
+  0.2 * IF(Capacidad_Endeudamiento = 'Alto', 1, 0) +
+  0.1 * IF(Capacidad_Endeudamiento = 'Medio', 1, 0) AS capacity_score,
+  0.1 * IF(age BETWEEN 0 AND 20, 1, 0) * 0.2 +
+  0.1 * IF(age BETWEEN 21 AND 40, 1, 0) * 0.5 +
+  0.1 * IF(age BETWEEN 41 AND 60, 1, 0) * 0.3 AS age_score,
+  (0.4 * IF(more_90_days_overdue_status = 'Yes', 1, 0)) +
+  (0.3 * debt_ratio) +
+  (0.2 * IF(Capacidad_Endeudamiento = 'Alto', 1, 0) + 0.1 * IF(Capacidad_Endeudamiento = 'Medio', 1, 0)) +
+  (0.1 * IF(age BETWEEN 0 AND 20, 1, 0) * 0.2 + 0.1 * IF(age BETWEEN 21 AND 40, 1, 0) * 0.5 + 0.1 * IF(age BETWEEN 41 AND 60, 1, 0) * 0.3) AS risk_score
+FROM
+  `proyecto3-428922.dataset.dataset_1`;
+
+```
+***3. Matriz de Confusión y Evaluación del Modelo***
+Se generó una matriz de confusión para evaluar el desempeño del modelo de clasificación basado en el risk_score calculado. La matriz de confusión permite comparar las predicciones del modelo con las etiquetas reales de los clientes.
+
+```
+WITH confusion_matrix AS (
+  SELECT
+    COUNTIF(payment_classification = 'Good Payer' AND default_flag = 0) AS true_positive,
+    COUNTIF(payment_classification = 'Good Payer' AND default_flag = 1) AS false_positive,
+    COUNTIF(payment_classification = 'Bad Payer' AND default_flag = 0) AS false_negative,
+    COUNTIF(payment_classification = 'Bad Payer' AND default_flag = 1) AS true_negative
+  FROM
+    `proyecto3-428922.dataset_classified`
+)
+
+SELECT
+  true_positive,
+  false_positive,
+  false_negative,
+  true_negative,
+  (true_positive + true_negative) / (true_positive + false_positive + false_negative + true_negative) AS accuracy,
+  true_positive / (true_positive + false_positive) AS precision,
+  true_positive / (true_positive + false_negative) AS recall,
+  2 * ((true_positive / (true_positive + false_positive)) * (true_positive / (true_positive + false_negative))) /
+  ((true_positive / (true_positive + false_positive)) + (true_positive / (true_positive + false_negative))) AS f1_score
+FROM
+  confusion_matrix;
+
+```
+***4. Resultados***
+- *Accuracy: 76.44%* 
+El modelo tiene una precisión general del 76.44% en la clasificación de los clientes como buenos o malos pagadores.
+
+- *Precision: 98.29%*
+Cuando el modelo predice que un cliente es un buen pagador, el 98.29% de las veces está en lo correcto.
+
+- *Recall: 77.36%*
+El modelo captura el 77.36% de los verdaderos buenos pagadores en su clasificación.
+
+- *F1 Score: 86.58%*
+El F1 Score, que combina precisión y recall, es del 86.58%, indicando un buen equilibrio entre ambos.
