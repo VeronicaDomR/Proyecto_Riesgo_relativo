@@ -5,10 +5,11 @@ Propuesta de automatización del proceso de análisis utilizando técnicas avanz
 - [Herramientas](#herramientas)
 - [Lenguajes](#lenguajes)
 - [Procesamiento y preparación de datos](#procesamiento-y-preparación-de-datos)
+- [Correlaciones](#correlaciones)
+- [Outliers](#outliers)
 - [Variables Creadas](#Variables-Creadas)
-- [Resultados](#resultados)
-- [Correlación entre variables](#correlación-entre-variables)
-- [Prueba de Significancia](#prueba-de-significancia) 
+- [Hipótesis](#hipótesis)
+- [Análisis de Riesgo de Crédito](#análisis-de-Riesgo-de-Crédito)
 - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
 - [Recursos](#recursos)
 
@@ -48,7 +49,7 @@ Esto nos permitió garantizar que nuestros análisis sean lo más precisos posib
 3. ### Identificación y Manejo de Duplicados
 Se identificaron duplicados en la tabla 'loans_outstanding', totalizando 304,270 registros duplicados. Lo cual nos indican que un cliente puede tener varios prestamos.
 
-4. ### Identificar y manejar datos fuera del alcance del análisis
+## Correlaciones 
 
  ![](imagenes/corr_stddev.png)
  
@@ -69,7 +70,7 @@ Esta correlación es cercana a cero y negativa. Esto sugiere que no hay una rela
 
 Esta correlación es muy cercana a cero y positiva. Indica que no hay una relación lineal significativa entre la cantidad total de tipos de préstamos y la relación deuda-ingreso (debt ratio) de los usuarios. Esto sugiere que la variedad de tipos de préstamos que un usuario tiene no está correlacionada con su relación deuda-ingreso de manera significativa.
 
-5. ### Outliers
+## Outliers
 
 Para identificar los outliers en nuestras variables, primero determinamos si los datos pertenecían a una distribución normal o sesgada. Este análisis es crucial, ya que el método para detectar outliers varía según la distribución de los datos:
 
@@ -146,7 +147,7 @@ En detalle, la metodología seguida incluye:
 - ***Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores.*** Dado que el riesgo relativo para las personas con más préstamos es de 0.604, esto invalida la hipótesis de que las personas con una mayor cantidad de préstamos activos tienen un mayor riesgo de ser malos pagadores. En lugar de eso, el análisis sugiere que tener más préstamos activos está asociado con un menor riesgo de incumplimiento en comparación con tener menos préstamos activos.
 - ***Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores.*** Las personas con más veces de retraso tienen un riesgo relativo de 36.50, lo cual valida hipótesis. Los resultados muestran que la frecuencia de retrasos prolongados en los pagos está altamente correlacionada con un riesgo significativamente mayor de incumplimiento.
 
-   ## Análisis de Riesgo de Crédito
+## Análisis de Riesgo de Crédito
   
 ***1. Creación de Variables Dummies***
 Para facilitar el análisis y modelado del riesgo de crédito, se crearon variables dummies a partir de las variables categóricas y continuas en el dataset. Las variables dummies permiten convertir categorías en valores numéricos que pueden ser utilizados en modelos de aprendizaje automático y análisis estadístico.
