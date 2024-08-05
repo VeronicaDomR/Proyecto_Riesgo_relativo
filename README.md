@@ -5,11 +5,10 @@ Propuesta de automatización del proceso de análisis utilizando técnicas avanz
 - [Herramientas](#herramientas)
 - [Lenguajes](#lenguajes)
 - [Procesamiento y preparación de datos](#procesamiento-y-preparación-de-datos)
-- [Correlaciones](#correlaciones)
-- [Outliers](#outliers)
 - [Variables Creadas](#Variables-Creadas)
-- [Hipótesis](#hipótesis)
-- [Análisis de Riesgo de Crédito](#análisis-de-Riesgo-de-Crédito)
+- [Resultados](#resultados)
+- [Correlación entre variables](#correlación-entre-variables)
+- [Prueba de Significancia](#prueba-de-significancia) 
 - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
 - [Recursos](#recursos)
 
@@ -49,27 +48,6 @@ Esto nos permitió garantizar que nuestros análisis sean lo más precisos posib
 3. ### Identificación y Manejo de Duplicados
 Se identificaron duplicados en la tabla 'loans_outstanding', totalizando 304,270 registros duplicados. Lo cual nos indican que un cliente puede tener varios prestamos.
 
-## Correlaciones 
-
- ![](imagenes/corr_stddev.png)
- 
-Se calcularon las correlaciones entre variables para analizar sus relaciones. Se encontraron correlaciones muy altas, cercanas a 1, indicando una fuerte relación lineal entre las siguientes variables:
-
-   - more_90_days_overdue y number_times_delayed_payment_loan_60_89_days (0.9921).
-   - more_90_days_overdue y number_times_delayed_payment_loan_30_59_days (0.9829).
-
-Se observa que las desviaciones estándar son muy similares, lo que indica que los tres valores están cercanos a la media. Esto sugiere que cualquiera de las variables puede ser excluida sin perder información importante. 
-
- ![](imagenes/corr_total_loan_type.png)
-
-- *Correlación entre cantidad_total_tipo_prestamo y more_90_days_overdue:*
-
-Esta correlación es cercana a cero y negativa. Esto sugiere que no hay una relación lineal fuerte entre la cantidad total de tipos de préstamos y la cantidad de veces que un usuario ha estado más de 90 días en mora con sus préstamos. En otras palabras, el número total de tipos de préstamos que un usuario tiene no parece estar asociado de manera significativa con el número de veces que ese usuario ha estado gravemente moroso en sus préstamos.
-
-- *Correlación entre cantidad_total_tipo_prestamo y debt_ratio:*
-
-Esta correlación es muy cercana a cero y positiva. Indica que no hay una relación lineal significativa entre la cantidad total de tipos de préstamos y la relación deuda-ingreso (debt ratio) de los usuarios. Esto sugiere que la variedad de tipos de préstamos que un usuario tiene no está correlacionada con su relación deuda-ingreso de manera significativa.
-
 ## Outliers
 
 Para identificar los outliers en nuestras variables, primero determinamos si los datos pertenecían a una distribución normal o sesgada. Este análisis es crucial, ya que el método para detectar outliers varía según la distribución de los datos:
@@ -90,6 +68,31 @@ Este filtrado garantiza que los datos analizados sean más representativos y no 
 ![](imagenes/datatset.png)
 
 El siguiente conjunto de datos ha sido preparado después de aplicar procesos de limpieza para asegurar su integridad y calidad. 
+
+## Correlaciones 
+
+ ![](imagenes/corr_stddev.png)
+ 
+Se calcularon las correlaciones entre variables para analizar sus relaciones. Se encontraron correlaciones muy altas, cercanas a 1, indicando una fuerte relación lineal entre las siguientes variables:
+
+   - more_90_days_overdue y number_times_delayed_payment_loan_60_89_days (0.9921).
+   - more_90_days_overdue y number_times_delayed_payment_loan_30_59_days (0.9829).
+
+Se observa que las desviaciones estándar son muy similares, lo que indica que los tres valores están cercanos a la media. Esto sugiere que cualquiera de las variables puede ser excluida sin perder información importante. 
+
+![](imagenes/corr_total_loan_type.png)
+
+- *Correlación entre cantidad_total_tipo_prestamo y more_90_days_overdue:*
+
+Esta correlación es cercana a cero y negativa. Esto sugiere que no hay una relación lineal fuerte entre la cantidad total de tipos de préstamos y la cantidad de veces que un usuario ha estado más de 90 días en mora con sus préstamos. En otras palabras, el número total de tipos de préstamos que un usuario tiene no parece estar asociado de manera significativa con el número de veces que ese usuario ha estado gravemente moroso en sus préstamos.
+
+- *Correlación entre cantidad_total_tipo_prestamo y debt_ratio:*
+
+Esta correlación es muy cercana a cero y positiva. Indica que no hay una relación lineal significativa entre la cantidad total de tipos de préstamos y la relación deuda-ingreso (debt ratio) de los usuarios. Esto sugiere que la variedad de tipos de préstamos que un usuario tiene no está correlacionada con su relación deuda-ingreso de manera significativa.
+
+![](imagenes/matriz_correlacion.png)
+
+Correlaciones: Los valores en la matriz van desde -1 a 1. 1 indica una correlación positiva perfecta. -1 indica una correlación negativa perfecta. 0 indica que no hay correlación. Los valores cercanos a 1 o -1 indican una fuerte correlación, mientras que los valores cercanos a 0 indican una correlación débil.
 
 ## Variables Creadas
 En el proceso de preparación del conjunto de datos, se crearon las siguientes variables para proporcionar una mayor claridad y facilitar el análisis de los tipos de préstamos:
@@ -147,7 +150,7 @@ En detalle, la metodología seguida incluye:
 - ***Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores.*** Dado que el riesgo relativo para las personas con más préstamos es de 0.604, esto invalida la hipótesis de que las personas con una mayor cantidad de préstamos activos tienen un mayor riesgo de ser malos pagadores. En lugar de eso, el análisis sugiere que tener más préstamos activos está asociado con un menor riesgo de incumplimiento en comparación con tener menos préstamos activos.
 - ***Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores.*** Las personas con más veces de retraso tienen un riesgo relativo de 36.50, lo cual valida hipótesis. Los resultados muestran que la frecuencia de retrasos prolongados en los pagos está altamente correlacionada con un riesgo significativamente mayor de incumplimiento.
 
-## Análisis de Riesgo de Crédito
+   ## Análisis de Riesgo de Crédito
   
 ***1. Creación de Variables Dummies***
 Para facilitar el análisis y modelado del riesgo de crédito, se crearon variables dummies a partir de las variables categóricas y continuas en el dataset. Las variables dummies permiten convertir categorías en valores numéricos que pueden ser utilizados en modelos de aprendizaje automático y análisis estadístico.
@@ -232,3 +235,4 @@ El modelo captura el 77.36% de los verdaderos buenos pagadores en su clasificaci
 
 - *F1 Score: 86.58%*
 El F1 Score, que combina precisión y recall, es del 86.58%, indicando un buen equilibrio entre ambos.
+
