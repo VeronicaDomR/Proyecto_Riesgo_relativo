@@ -1,6 +1,6 @@
 # Proyecto3: Riesgo Relativo
 Propuesta de automatización del proceso de análisis utilizando técnicas avanzadas de análisis de datos, con el objetivo de mejorar la eficiencia, la precisión y la rapidez en la evaluación de las solicitudes de crédito.
-![](imagenes/análisis_financiero.png)
+![](imagenes/portada.png)
 ## Temas
 - [Introducción](#introducción)
 - [Herramientas](#herramientas)
@@ -69,13 +69,13 @@ De nuestras variables analizadas, solo la variable edad presentó una distribuci
 #### Tratamiento de Outliers
 En el análisis de datos de la tabla `proyecto3-428922.dataset.loans_Detail`, se aplicaron filtros para excluir los valores mayores o iguales a 96 en las variables more_90_days_overdue, number_times_delayed_payment_loan_30_59_days y number_times_delayed_payment_loan_60_89_days. Estos valores fueron identificados como outliers mediante el rango intercuartílico. Este filtrado garantiza que los datos analizados sean más representativos y no estén sesgados por valores atípicos excesivamente altos en las variables mencionadas.
 
-![](imagenes/datatset.png)
+![](imagenes/outliers_mora.png)
 
 El siguiente conjunto de datos ha sido preparado después de aplicar procesos de limpieza para asegurar su integridad y calidad. 
 
 ## Correlaciones
 
-![](imagenes/corr_stddev.png)
+![](imagenes/corr_desv.png)
 
 Se calcularon las correlaciones entre variables para analizar sus relaciones. Se encontraron correlaciones muy altas, cercanas a 1, indicando una fuerte relación lineal entre las siguientes variables:
    - more_90_days_overdue y number_times_delayed_payment_loan_60_89_days (0.9921).
@@ -83,7 +83,7 @@ Se calcularon las correlaciones entre variables para analizar sus relaciones. Se
 
 Se observa que las desviaciones estándar son muy similares, lo que indica que los tres valores están cercanos a la media. Esto sugiere que cualquiera de las variables puede ser excluida sin perder información importante. 
 
-![](imagenes/corr_total_loan_type.png)
+![](imagenes/correlation_prestamo.png)
 
 - *Correlación entre cantidad_total_tipo_prestamo y more_90_days_overdue:*
 Esta correlación es cercana a cero y negativa. Esto sugiere que no hay una relación lineal fuerte entre la cantidad total de tipos de préstamos y la cantidad de veces que un usuario ha estado más de 90 días en mora con sus préstamos. En otras palabras, el número total de tipos de préstamos que un usuario tiene no parece estar asociado de manera significativa con el número de veces que ese usuario ha estado gravemente moroso en sus préstamos.
@@ -91,7 +91,7 @@ Esta correlación es cercana a cero y negativa. Esto sugiere que no hay una rela
 - *Correlación entre cantidad_total_tipo_prestamo y debt_ratio:*
 Esta correlación es muy cercana a cero y positiva. Indica que no hay una relación lineal significativa entre la cantidad total de tipos de préstamos y la relación deuda-ingreso (debt ratio) de los usuarios. Esto sugiere que la variedad de tipos de préstamos que un usuario tiene no está correlacionada con su relación deuda-ingreso de manera significativa.
 
-![](imagenes/matriz_correlacion.png)
+![](imagenes/matriz_corr.png)
 
 Correlaciones: Los valores en la matriz van desde -1 a 1. 1 indica una correlación positiva perfecta. -1 indica una correlación negativa perfecta. 0 indica que no hay correlación. Los valores cercanos a 1 o -1 indican una fuerte correlación, mientras que los valores cercanos a 0 indican una correlación débil.
 
@@ -180,7 +180,7 @@ FROM
 ```
 
 ### Matriz de Confusión y Evaluación del Modelo
-![](imagenes/matriz.png)
+![](imagenes/matriz_conf.png)
 
 Se creó una matriz de confusión para evaluar el rendimiento del modelo. Esto permite medir la precisión, la sensibilidad y la especificidad del modelo en la clasificación de buenos y malos pagadores. La matriz de confusión ayuda a identificar las tasas de verdaderos positivos, verdaderos negativos, falsos positivos y falsos negativos.
 - *True positive:* Estos son los casos en los que el modelo predijo correctamente que un cliente incumpliría con su pago.
