@@ -229,7 +229,7 @@ FROM
 - *False positive:* Estos son los casos en los que el modelo predijo incorrectamente que un cliente incumpliría con su pago, pero en realidad no lo hizo.
 - *True negative:* Estos son los casos en los que el modelo predijo correctamente que un cliente no incumpliría con su pago.
   
-***4. Resultados***
+***4. Resultados de las métricas***
 - *Accuracy: 76.44%* 
 El modelo tiene una precisión general del 76.44% en la clasificación de los clientes como buenos o malos pagadores.
 
@@ -248,4 +248,21 @@ Estas métricas proporcionan una visión completa del rendimiento del modelo. Un
 
 - *Eje X (var_temp):* Representa la variable predictora var_temp, que es una codificación numérica de los grupos generacionales.
 - *Eje Y (Probabilidad):* Representa la probabilidad estimada de que ocurra el evento de default (incumplimiento).
-- *La función logística (línea roja):* indica cómo el modelo predice la probabilidad de incumplimiento basada en el grupo generacional.
+- *La función logística (línea roja):* indica cómo el modelo predice la probabilidad de incumplimiento basada en el grupo generacional.}
+
+## Recomendaciones
+- Monitoreo del desempeño: Continuar monitoreando el desempeño del modelo y realizar ajustes periódicos basados en nuevos datos y patrones emergentes.
+- Actualización del modelo: Actualizar el modelo con datos recientes y realizar reentrenamientos para asegurar que se mantenga efectivo en la detección de incumplimientos.
+- Procesos de verificación y validación: Implementar estos procesos para minimizar errores y asegurar la calidad de los datos antes de su utilización en el modelado.
+- Políticas de crédito: Implementar políticas de crédito más rigurosas para los segmentos de clientes con alta probabilidad de falsos negativos.
+
+## Recursos
+### Presentación del Proyecto
+[![Ver Presentación](imagenes/portada_presentacion.png)](https://www.canva.com/design/DAGMvLYZQpQ/W6Vx2G-bTGj3CnRbcsy5Yg/view?utm_content=DAGMvLYZQpQ&utm_campaign=designshare&utm_medium=link&utm_source=editor)
+
+## Google Colab Notebook
+Puedes acceder a mi notebook en Google Colab haciendo clic [aquí](https://colab.research.google.com/drive/17cAeL7ujk76bEFqak3T37nXNFNcJIhUu#scrollTo=jBcSpuqunEbR).
+
+## Dashboard de Power BI
+
+Puedes acceder al PDF de mi dashboard de Power BI haciendo clic [aquí](https://acrobat.adobe.com/id/urn:aaid:sc:us:393df085-797b-488d-86f8-1acccc701472).
