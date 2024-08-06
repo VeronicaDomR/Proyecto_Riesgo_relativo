@@ -247,5 +247,5 @@ Estas métricas proporcionan una visión completa del rendimiento del modelo. Un
 Puedes acceder a mi notebook en Google Colab haciendo clic [aquí](https://github.com/VeronicaDomR/Proyecto3_Riesgo_relativo/blob/main/Proyecto3.ipynb).
 
 ## Dashboard 
-Puedes acceder al PDF de mi dashboard haciendo clic [aquí](https://github.com/VeronicaDomR/Proyecto3_Riesgo_relativo/blob/main/Dashboard_proyecto3.pdf).
+Puedes acceder a mi dashboard en Looker Studio haciendo clic [aquí](https://lookerstudio.google.com/reporting/c826f0f6-8cc6-45c7-b466-fe3d760085fb).
 
