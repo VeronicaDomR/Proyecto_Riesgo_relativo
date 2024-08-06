@@ -1,6 +1,6 @@
 # Proyecto3_Riesgo_relativo
 Propuesta de automatización del proceso de análisis utilizando técnicas avanzadas de análisis de datos, con el objetivo de mejorar la eficiencia, la precisión y la rapidez en la evaluación de las solicitudes de crédito.
-
+![](imagenes/análisis_financiero.png)
 ## Temas
 - [Introducción](#introducción)
 - [Herramientas](#herramientas)
@@ -70,10 +70,13 @@ De nuestras variables analizadas, solo la variable edad presentó una distribuci
 En el análisis de datos de la tabla `proyecto3-428922.dataset.loans_Detail`, se aplicaron filtros para excluir los valores mayores o iguales a 96 en las variables more_90_days_overdue, number_times_delayed_payment_loan_30_59_days y number_times_delayed_payment_loan_60_89_days. Estos valores fueron identificados como outliers mediante el rango intercuartílico. Este filtrado garantiza que los datos analizados sean más representativos y no estén sesgados por valores atípicos excesivamente altos en las variables mencionadas.
 
 ![](imagenes/datatset.png)
+
 El siguiente conjunto de datos ha sido preparado después de aplicar procesos de limpieza para asegurar su integridad y calidad. 
 
 ## Correlaciones
+
 ![](imagenes/corr_stddev.png)
+
 Se calcularon las correlaciones entre variables para analizar sus relaciones. Se encontraron correlaciones muy altas, cercanas a 1, indicando una fuerte relación lineal entre las siguientes variables:
    - more_90_days_overdue y number_times_delayed_payment_loan_60_89_days (0.9921).
    - more_90_days_overdue y number_times_delayed_payment_loan_30_59_days (0.9829).
@@ -81,6 +84,7 @@ Se calcularon las correlaciones entre variables para analizar sus relaciones. Se
 Se observa que las desviaciones estándar son muy similares, lo que indica que los tres valores están cercanos a la media. Esto sugiere que cualquiera de las variables puede ser excluida sin perder información importante. 
 
 ![](imagenes/corr_total_loan_type.png)
+
 - *Correlación entre cantidad_total_tipo_prestamo y more_90_days_overdue:*
 Esta correlación es cercana a cero y negativa. Esto sugiere que no hay una relación lineal fuerte entre la cantidad total de tipos de préstamos y la cantidad de veces que un usuario ha estado más de 90 días en mora con sus préstamos. En otras palabras, el número total de tipos de préstamos que un usuario tiene no parece estar asociado de manera significativa con el número de veces que ese usuario ha estado gravemente moroso en sus préstamos.
 
@@ -88,6 +92,7 @@ Esta correlación es cercana a cero y negativa. Esto sugiere que no hay una rela
 Esta correlación es muy cercana a cero y positiva. Indica que no hay una relación lineal significativa entre la cantidad total de tipos de préstamos y la relación deuda-ingreso (debt ratio) de los usuarios. Esto sugiere que la variedad de tipos de préstamos que un usuario tiene no está correlacionada con su relación deuda-ingreso de manera significativa.
 
 ![](imagenes/matriz_correlacion.png)
+
 Correlaciones: Los valores en la matriz van desde -1 a 1. 1 indica una correlación positiva perfecta. -1 indica una correlación negativa perfecta. 0 indica que no hay correlación. Los valores cercanos a 1 o -1 indican una fuerte correlación, mientras que los valores cercanos a 0 indican una correlación débil.
 
 ## Variables Creadas
@@ -109,42 +114,124 @@ En el proceso de preparación del conjunto de datos, se crearon las siguientes v
   - Otro: En caso de que debt_ratio no cumpla con las condiciones anteriores.
 
 ## Hipótesis
-![](imagenes/Hipotesis.png)
-- Hipótesis 1: Los usuarios más jóvenes presentan un mayor riesgo de incumplimiento de préstamos.
-- Hipótesis 2: Los usuarios con un mayor número de préstamos pendientes tienen más probabilidades de incumplimiento.
-- Hipótesis 3: Los usuarios con una mayor relación deuda-ingreso (debt ratio) presentan un mayor riesgo de incumplimiento.
+Para comprobar las hipótesis, se calculo el riesgo relativo utilizando la incidencia del grupo expuesto en comparación con el grupo no expuesto. Esto nos permite evaluar la asociación entre ambos grupos y entender mejor el impacto del factor de exposición en la variable de interés.
+
+En detalle, la metodología seguida incluye:
+
+- ***Cálculo de la Incidencia:*** Primero se determinó la incidencia de incumplimiento en cada grupo, dividiendo el número de malos pagadores entre el total de observaciones en cada grupo.
+
+- ***Definición de Grupos:*** Se clasificaron los datos en grupos expuestos y no expuestos en función del cuartil de la variable de retraso en el pago.
+
+- ***Cálculo del Riesgo Relativo:*** Finalmente, se calculó el riesgo relativo como la razón entre la incidencia del grupo expuesto y la incidencia del grupo no expuesto. Esto nos proporciona una medida de cómo el grupo expuesto se compara con el grupo no expuesto en términos de probabilidad de incumplimiento.
+  
+- ***Hipótesis 1: Los más jóvenes tienen un mayor riesgo de impago.*** Un riesgo relativo de 2.29 para el grupo de edad joven indica que este grupo tiene 2.29 veces más probabilidades de incumplir sus préstamos en comparación con los otros grupos de edad. Esto sugiere que la edad joven está asociada con un mayor riesgo de incumplimiento.
+- ***Hipótesis 2: Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores.*** Dado que el riesgo relativo para las personas con más préstamos es de 0.604, esto invalida la hipótesis de que las personas con una mayor cantidad de préstamos activos tienen un mayor riesgo de ser malos pagadores. En lugar de eso, el análisis sugiere que tener más préstamos activos está asociado con un menor riesgo de incumplimiento en comparación con tener menos préstamos activos.
+- ***Hipótesis 3: Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores.*** Las personas con más veces de retraso tienen un riesgo relativo de 36.50, lo cual valida hipótesis. Los resultados muestran que la frecuencia de retrasos prolongados en los pagos está altamente correlacionada con un riesgo significativamente mayor de incumplimiento.
+
 
 ## Análisis de Riesgo de Crédito
 El análisis se enfoca en evaluar el riesgo de incumplimiento de préstamos mediante la creación de un score de riesgo, que permita clasificar a los solicitantes en diferentes niveles de riesgo y facilitar la toma de decisiones informadas para la concesión de créditos. Esto se logra mediante la creación de variables dummies, el cálculo del score de riesgo, y la evaluación del modelo mediante una matriz de confusión.
 
 ### Creación de Variables Dummies
-![](imagenes/CodigosDummies.png)
-Variables dummies creadas para el cálculo del score de riesgo:
-  - Generational_group_Millenials.
-  - More_90_days_overdue_status_Medio Retraso.
-  - More_90_days_overdue_status_Mucho Retraso.
-  - More_90_days_overdue_status_Poco Retraso.
-  - Riesgo_deuda_Alto Riesgo.
-  - Riesgo_deuda_Bajo Riesgo.
-  - Riesgo_deuda_Riesgo Medio.
-  - Payment_compliance_status_Cumplido.
-  - Payment_compliance_status_Incumplido.
-  - Payment_compliance_status_Intermedio.
+Para facilitar el análisis y modelado del riesgo de crédito, se crearon variables dummies a partir de las variables categóricas y continuas en el dataset. Las variables dummies permiten convertir categorías en valores numéricos que pueden ser utilizados en modelos de aprendizaje automático y análisis estadístico.
+
+```sql
+CREATE OR REPLACE TABLE `proyecto3-428922.dataset_dummies` AS
+SELECT
+  *,
+  IF(more_90_days_overdue_status = 'Yes', 1, 0) AS overdue_yes,
+  IF(more_90_days_overdue_status = 'No', 1, 0) AS overdue_no,
+  IF(Riesgo_Incumplimiento = 'Bajo Riesgo', 1, 0) AS risk_low,
+  IF(Riesgo_Incumplimiento = 'Riesgo Medio', 1, 0) AS risk_medium,
+  IF(Riesgo_Incumplimiento = 'Alto Riesgo', 1, 0) AS risk_high,
+  IF(Capacidad_Endeudamiento = 'Bajo', 1, 0) AS debt_capacity_low,
+  IF(Capacidad_Endeudamiento = 'Medio', 1, 0) AS debt_capacity_medium,
+  IF(Capacidad_Endeudamiento = 'Alto', 1, 0) AS debt_capacity_high,
+  IF(age BETWEEN 0 AND 20, 1, 0) AS age_0_20,
+  IF(age BETWEEN 21 AND 40, 1, 0) AS age_21_40,
+  IF(age BETWEEN 41 AND 60, 1, 0) AS age_41_60,
+  IF(age BETWEEN 61 AND 80, 1, 0) AS age_61_80,
+  IF(age BETWEEN 81 AND 100, 1, 0) AS age_81_100
+FROM
+  `proyecto3-428922.dataset.dataset_1`;
+```
   
 ### Cálculo del Score de Riesgo
-![](imagenes/RegLogistica.png)
-Se utilizó regresión logística para calcular la propensión a ser un cliente con riesgo crediticio, utilizando `default_flag` como variable objetivo y las variables dummies como predictoras.
+
+Para clasificar el riesgo de crédito, se asignaron ponderaciones a cada variable y se calcularon los scores de riesgo para cada cliente. Las ponderaciones reflejan la importancia relativa de cada variable en la evaluación del riesgo.
+
+```sql
+CREATE OR REPLACE TABLE `proyecto3-428922.dataset_risk_scores` AS
+SELECT
+  *,
+  0.4 * IF(more_90_days_overdue_status = 'Yes', 1, 0) AS more_90_days_overdue_score,
+  0.3 * debt_ratio AS debt_ratio_score,
+  0.2 * IF(Capacidad_Endeudamiento = 'Alto', 1, 0) +
+  0.1 * IF(Capacidad_Endeudamiento = 'Medio', 1, 0) AS capacity_score,
+  0.1 * IF(age BETWEEN 0 AND 20, 1, 0) * 0.2 +
+  0.1 * IF(age BETWEEN 21 AND 40, 1, 0) * 0.5 +
+  0.1 * IF(age BETWEEN 41 AND 60, 1, 0) * 0.3 AS age_score,
+  (0.4 * IF(more_90_days_overdue_status = 'Yes', 1, 0)) +
+  (0.3 * debt_ratio) +
+  (0.2 * IF(Capacidad_Endeudamiento = 'Alto', 1, 0) + 0.1 * IF(Capacidad_Endeudamiento = 'Medio', 1, 0)) +
+  (0.1 * IF(age BETWEEN 0 AND 20, 1, 0) * 0.2 + 0.1 * IF(age BETWEEN 21 AND 40, 1, 0) * 0.5 + 0.1 * IF(age BETWEEN 41 AND 60, 1, 0) * 0.3) AS risk_score
+FROM
+  `proyecto3-428922.dataset.dataset_1`;
+```
 
 ### Matriz de Confusión y Evaluación del Modelo
-![](imagenes/matrizConfusion.png)
-Se creó una matriz de confusión para evaluar el rendimiento del modelo. Esto permite medir la precisión, la sensibilidad y la especificidad del modelo en la clasificación de buenos y malos pagadores. La matriz de confusión ayuda a identificar las tasas de verdaderos positivos, verdaderos negativos, falsos positivos y falsos negativos.
+![](imagenes/matriz.png)
 
+Se creó una matriz de confusión para evaluar el rendimiento del modelo. Esto permite medir la precisión, la sensibilidad y la especificidad del modelo en la clasificación de buenos y malos pagadores. La matriz de confusión ayuda a identificar las tasas de verdaderos positivos, verdaderos negativos, falsos positivos y falsos negativos.
+- *True positive:* Estos son los casos en los que el modelo predijo correctamente que un cliente incumpliría con su pago.
+- *False negative:* Estos son los casos en los que el modelo predijo incorrectamente que un cliente no incumpliría con su pago, pero en realidad sí incumplió.
+- *False positive:* Estos son los casos en los que el modelo predijo incorrectamente que un cliente incumpliría con su pago, pero en realidad no lo hizo.
+- *True negative:* Estos son los casos en los que el modelo predijo correctamente que un cliente no incumpliría con su pago.
+- 
+```sql
+WITH confusion_matrix AS (
+  SELECT
+    COUNTIF(payment_classification = 'Good Payer' AND default_flag = 0) AS true_positive,
+    COUNTIF(payment_classification = 'Good Payer' AND default_flag = 1) AS false_positive,
+    COUNTIF(payment_classification = 'Bad Payer' AND default_flag = 0) AS false_negative,
+    COUNTIF(payment_classification = 'Bad Payer' AND default_flag = 1) AS true_negative
+  FROM
+    `proyecto3-428922.dataset_classified`
+)
+
+SELECT
+  true_positive,
+  false_positive,
+  false_negative,
+  true_negative,
+  (true_positive + true_negative) / (true_positive + false_positive + false_negative + true_negative) AS accuracy,
+  true_positive / (true_positive + false_positive) AS precision,
+  true_positive / (true_positive + false_negative) AS recall,
+  2 * ((true_positive / (true_positive + false_positive)) * (true_positive / (true_positive + false_negative))) /
+  ((true_positive / (true_positive + false_positive)) + (true_positive / (true_positive + false_negative))) AS f1_score
+FROM
+  confusion_matrix;
+```
 ## Resultados
-![](imagenes/Riesgo_Incumplimiento.png)
-Los resultados del análisis indican que:
-- Los usuarios más jóvenes tienen un mayor riesgo de incumplimiento de préstamos, con un riesgo de incumplimiento de préstamos que es 2.29 veces mayor que el de los otros grupos de edad, validando así la hipótesis de que los jóvenes tienen un mayor riesgo de incumplimiento.
-- La variable `debt_ratio` segmentada en `Riesgo_Incumplimiento` permite clasificar efectivamente a los usuarios en diferentes niveles de riesgo.
-- La matriz de confusión muestra que el modelo tiene una precisión aceptable en la clasificación de buenos y malos pagadores.
+-  *Accuracy: 76.44%* 
+El modelo tiene una precisión general del 76.44% en la clasificación de los clientes como buenos o malos pagadores.
+
+- *Precision: 98.29%*
+Cuando el modelo predice que un cliente es un buen pagador, el 98.29% de las veces está en lo correcto.
+
+- *Recall: 77.36%*
+El modelo captura el 77.36% de los verdaderos buenos pagadores en su clasificación.
+
+- *F1 Score: 86.58%*
+El F1 Score, que combina precisión y recall, es del 86.58%, indicando un buen equilibrio entre ambos.
+
+Estas métricas proporcionan una visión completa del rendimiento del modelo. Una alta precisión y recall sugieren que el modelo es muy eficaz en identificar a los clientes que incumplirán con sus pagos, mientras que una buena exactitud general y un F1 Score equilibrado indican un desempeño sólido y consistente del modelo en general.
+
+![](imagenes/regresión_logisitca.png)
+
+- *Eje X (var_temp):* Representa la variable predictora var_temp, que es una codificación numérica de los grupos generacionales.
+- *Eje Y (Probabilidad):* Representa la probabilidad estimada de que ocurra el evento de default (incumplimiento).
+- *La función logística (línea roja):* indica cómo el modelo predice la probabilidad de incumplimiento basada en el grupo generacional.
 
 ## Conclusiones y recomendaciones
 ![](imagenes/Conclusion.png)
