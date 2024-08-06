@@ -223,6 +223,12 @@ FROM
   confusion_matrix;
 
 ```
+![](imagenes/matriz.png)
+- *True positive:* Estos son los casos en los que el modelo predijo correctamente que un cliente incumpliría con su pago.
+- *False negative:* Estos son los casos en los que el modelo predijo incorrectamente que un cliente no incumpliría con su pago, pero en realidad sí incumplió.
+- *False positive:* Estos son los casos en los que el modelo predijo incorrectamente que un cliente incumpliría con su pago, pero en realidad no lo hizo.
+- *True negative:* Estos son los casos en los que el modelo predijo correctamente que un cliente no incumpliría con su pago.
+  
 ***4. Resultados***
 - *Accuracy: 76.44%* 
 El modelo tiene una precisión general del 76.44% en la clasificación de los clientes como buenos o malos pagadores.
@@ -236,3 +242,10 @@ El modelo captura el 77.36% de los verdaderos buenos pagadores en su clasificaci
 - *F1 Score: 86.58%*
 El F1 Score, que combina precisión y recall, es del 86.58%, indicando un buen equilibrio entre ambos.
 
+Estas métricas proporcionan una visión completa del rendimiento del modelo. Una alta precisión y recall sugieren que el modelo es muy eficaz en identificar a los clientes que incumplirán con sus pagos, mientras que una buena exactitud general y un F1 Score equilibrado indican un desempeño sólido y consistente del modelo en general.
+
+![](imagenes/regresión_logisitca.png)
+
+- *Eje X (var_temp):* Representa la variable predictora var_temp, que es una codificación numérica de los grupos generacionales.
+- *Eje Y (Probabilidad):* Representa la probabilidad estimada de que ocurra el evento de default (incumplimiento).
+- *La función logística (línea roja):* indica cómo el modelo predice la probabilidad de incumplimiento basada en el grupo generacional.
