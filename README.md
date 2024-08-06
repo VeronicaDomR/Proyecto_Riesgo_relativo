@@ -37,7 +37,7 @@ El objetivo del análisis es armar un score crediticio a partir de un análisis 
 
 ## Procesamiento y preparación de datos
 ### Importación y Creación de Tablas en BigQuery
-- Proyecto: proyecto3.
+- ID proyecto: proyecto3.
 - Tablas importadas:
   - default.
   - loans_Detail.
