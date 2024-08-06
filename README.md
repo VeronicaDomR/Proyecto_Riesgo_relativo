@@ -261,8 +261,7 @@ Estas métricas proporcionan una visión completa del rendimiento del modelo. Un
 [![Ver Presentación](imagenes/portada_presentacion.png)](https://www.canva.com/design/DAGMvLYZQpQ/W6Vx2G-bTGj3CnRbcsy5Yg/view?utm_content=DAGMvLYZQpQ&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 ## Google Colab Notebook
-Puedes acceder a mi notebook en Google Colab haciendo clic [aquí](https://colab.research.google.com/drive/17cAeL7ujk76bEFqak3T37nXNFNcJIhUu#scrollTo=jBcSpuqunEbR).
+Puedes acceder a mi notebook en Google Colab haciendo clic [aquí](https://github.com/VeronicaDomR/Proyecto3_Riesgo_relativo/blob/main/Proyecto3.ipynb).
 
-## Dashboard de Power BI
-
-Puedes acceder al PDF de mi dashboard de Power BI haciendo clic [aquí](https://acrobat.adobe.com/id/urn:aaid:sc:us:393df085-797b-488d-86f8-1acccc701472).
+## Dashboard 
+Puedes acceder al PDF de mi dashboard haciendo clic [aquí](https://github.com/VeronicaDomR/Proyecto3_Riesgo_relativo/blob/main/Dashboard_proyecto3.pdf).
