@@ -3,8 +3,6 @@ Propuesta de automatización del proceso de análisis utilizando técnicas avanz
 ![](imagenes/portada.png)
 ## Temas
 
-
-abcd
 - [Introducción](#introducción)
 - [Herramientas](#herramientas)
 - [Lenguajes](#lenguajes)
