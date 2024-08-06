@@ -2,6 +2,9 @@
 Propuesta de automatización del proceso de análisis utilizando técnicas avanzadas de análisis de datos, con el objetivo de mejorar la eficiencia, la precisión y la rapidez en la evaluación de las solicitudes de crédito.
 ![](imagenes/portada.png)
 ## Temas
+
+
+abcd
 - [Introducción](#introducción)
 - [Herramientas](#herramientas)
 - [Lenguajes](#lenguajes)
