@@ -1,4 +1,4 @@
-# Proyecto3_Riesgo_relativo
+# Proyecto3: Riesgo Relativo
 Propuesta de automatización del proceso de análisis utilizando técnicas avanzadas de análisis de datos, con el objetivo de mejorar la eficiencia, la precisión y la rapidez en la evaluación de las solicitudes de crédito.
 ![](imagenes/análisis_financiero.png)
 ## Temas
