@@ -250,3 +250,6 @@ Puedes acceder a mi notebook en Google Colab haciendo clic [aquí](https://githu
 ## Dashboard 
 Puedes acceder a mi dashboard en Looker Studio haciendo clic [aquí](https://lookerstudio.google.com/reporting/c826f0f6-8cc6-45c7-b466-fe3d760085fb).
 
+## SQL
+Puedes observar mis consuoltas de BigQuery haciendo clic [aquí](https://github.com/VeronicaDomR/Proyecto3_Riesgo_relativo/tree/main/SQL).
+
