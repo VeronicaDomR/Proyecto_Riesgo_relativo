@@ -251,5 +251,7 @@ Puedes acceder a mi notebook en Google Colab haciendo clic [aquí](https://githu
 Puedes acceder a mi dashboard en Looker Studio haciendo clic [aquí](https://lookerstudio.google.com/reporting/c826f0f6-8cc6-45c7-b466-fe3d760085fb).
 
 ## SQL
-Puedes observar mis consuoltas de BigQuery haciendo clic [aquí](https://github.com/VeronicaDomR/Proyecto3_Riesgo_relativo/tree/main/SQL).
+Puedes observar mis consultas de BigQuery haciendo clic [aquí](https://github.com/VeronicaDomR/Proyecto3_Riesgo_relativo/tree/main/SQL).
 
+## Video de la presentación
+Puedes visualizar mi video de la presentación en Loom haciendo clic [aquí](https://www.loom.com/share/849c5258e95d43dab298be19cfe841c4?sid=236f46a0-fabb-468d-8294-d337abd2a02c).
